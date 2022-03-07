@@ -49,3 +49,4 @@ vscode:
   extensions:
     - ms-python.python
     - batisteo.vscode-django
+    - ms-toolsai.jupyter
