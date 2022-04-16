@@ -9,6 +9,7 @@ restart:
 	docker ps
 
 update:
+	git submodule update
 	git stash
 	git pull
 	git stash pop
