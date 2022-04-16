@@ -30,6 +30,8 @@ Este proyecto considera la automatización de algunas tareas al usar GitPod como
 - Modificación de los ALLOWED_HOSTS y CSRF_TRUSTED_ORIGINS en `core/settings/gitpod.py` (este archivo no debe ser commiteado!).
 - Creación de un Django Admin con credenciales: desarrollo/desarroll0.
 
+Estas automatizaciones se basan en rutas propias de GitPod que deben ser actualizadas en `gitpod.sh`.
+ 
 Puede revisar cómo funcionan estas automatizaciones y otros comandos útiles en:
 
 - gitpod.yml
