@@ -4,6 +4,10 @@ build:
 	docker-compose -f ../dc-produccion.yml up -d --build --force-recreate --remove-orphans
 	docker ps
 
+restart:
+	docker restart django_boilerplate
+	docker ps
+
 update:
 	git stash
 	git pull
@@ -12,11 +16,11 @@ update:
 static:
 	docker exec django_boilerplate python manage.py collectstatic --no-input
 
-loaddata:
-	docker exec django_boilerplate make loaddata
+# loaddata:
+# 	docker exec django_boilerplate make loaddata
 
-backup:
-	docker exec django_boilerplate make backup
+# backup:
+# 	docker exec django_boilerplate make backup
 
 media:
 	sudo cp -r ../media/* /home/instalar/media/django_boilerplate
@@ -31,13 +35,12 @@ deploy:
 	make update
 	make build
 	make migrate
-	make loaddata
+	# make loaddata
 	make static
 	make media
-	make build
+	make restart
 
 _secret:
-	chmod +x app/secret.sh
 	./app/secret.sh
 
 __media:

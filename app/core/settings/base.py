@@ -15,6 +15,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "demo.apps.DemoConfig",
 ]
 
 MIDDLEWARE = [
@@ -107,3 +108,9 @@ EMAIL_HOST_PASSWORD = get_env_variable("DJANGO_EMAIL_HOST_PASSWORD")
 SERVER_EMAIL = get_env_variable("DJANGO_SERVER_EMAIL")
 
 BASE_URL = get_env_variable("DJANGO_BASE_URL")
+
+# DCC SSO
+LOGIN_URL = get_env_variable("DJANGO_LOGIN_URL")
+SSO_URL = get_env_variable("DJANGO_SSO_URL")
+SSO_APP = get_env_variable("DJANGO_SSO_APP")
+SSO_AUTH = get_env_variable("DJANGO_SSO_AUTH")

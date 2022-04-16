@@ -11,8 +11,8 @@ sgr0 := $(shell tput sgr0)
 # 	zip _backup/backup.zip bkp/*.json
 # 	rm -rf bkp
 
-dumpdata:
-	python manage.py dumpdata backend --indent 2 > _backup/backend.json
+# dumpdata:
+# 	python manage.py dumpdata backend --indent 2 > _backup/backend.json
 
 run:
 	make precommit
