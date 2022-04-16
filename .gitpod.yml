@@ -9,6 +9,7 @@ tasks:
       pip install -r _requirements/base.txt -r _requirements/develop.txt
       pur -r _requirements/base.txt
       pur -r _requirements/develop.txt
+      pur -r _requirements/production.txt
       
       export GITPOD_HOST=`gp url | sed "s|https://||"`
       sed -i "s|GITPOD_HOST|8000-$GITPOD_HOST|g" core/settings/gitpod.py
