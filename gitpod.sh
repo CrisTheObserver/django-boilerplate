@@ -1,7 +1,8 @@
 # /bin/bash
 
 psql -U gitpod -c 'CREATE DATABASE boilerplate;'
-git submodule update
+git submodule git sync
+git submodule foreach git pull
 
 cd /workspace/django-boilerplate/app
 
