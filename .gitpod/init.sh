@@ -2,7 +2,7 @@
 
 echo INIT
 
-RUN psql -U gitpod -c 'CREATE DATABASE boilerplate;'
+psql -U gitpod -c 'CREATE DATABASE boilerplate;'
 
 git submodule sync
 git submodule foreach git checkout main
