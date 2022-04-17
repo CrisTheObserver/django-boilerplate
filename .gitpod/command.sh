@@ -2,6 +2,8 @@
 
 echo COMMAND
 
+RUN psql -U gitpod -c 'CREATE DATABASE boilerplate;'
+
 cd /workspace/django-boilerplate/app
 pip install --upgrade pip
 pip install -r _requirements/base.txt -r _requirements/develop.txt
