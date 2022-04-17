@@ -1,7 +1,8 @@
 image: gitpod/workspace-postgres
 
 tasks:
-  - init: .gitpod/init.sh
+  - before: .gitpod/before.sh
+    init: .gitpod/init.sh
     command: .gitpod/command.sh
 
 ports:
