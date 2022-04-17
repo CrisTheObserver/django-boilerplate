@@ -1,5 +1,7 @@
 # /bin/bash
 
+echo ENV
+
 export GITPOD_HOST=`gp url | sed "s|https://||"`
 export DJANGO_BASE_URL=https://8000-$GITPOD_HOST
 export DJANGO_SETTINGS_MODULE=core.settings.gitpod

@@ -1,5 +1,7 @@
 # /bin/bash
 
+echo INIT
+
 git submodule sync
 git submodule foreach git checkout main
 git submodule foreach git pull
