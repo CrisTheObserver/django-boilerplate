@@ -37,7 +37,7 @@ export DJANGO_SSO_URL=https://portal.dcc.uchile.cl/
 export DJANGO_SSO_APP=develop
 export DJANGO_SSO_AUTH=True
 
-if [ "$2" == "--init" ]
+if [ "$1" == "--init" ]
 then
     python manage.py migrate
     echo "from django.contrib.auth.models import User; User.objects.create_superuser('desarrollo', '', 'desarroll0')" | python manage.py shell
