@@ -1,8 +1,11 @@
 image: gitpod/workspace-postgres
 
 tasks:
-  - command:
-      ./gitpod.sh
+  - init: |
+      psql -U gitpod -c 'CREATE DATABASE boilerplate;'
+      git submodule git sync
+      git submodule foreach git pull
+  - command: ./gitpod.sh --init
 
 ports:
   - port: 8000

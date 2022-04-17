@@ -1,19 +1,20 @@
 # /bin/bash
 
-psql -U gitpod -c 'CREATE DATABASE boilerplate;'
-git submodule git sync
-git submodule foreach git pull
-
 cd /workspace/django-boilerplate/app
 
-pip install --upgrade pip
-pip install -r _requirements/base.txt -r _requirements/develop.txt
-pur -r _requirements/base.txt
-pur -r _requirements/production.txt
-
 export GITPOD_HOST=`gp url | sed "s|https://||"`
-sed -i "s|GITPOD_HOST|8000-$GITPOD_HOST|g" core/settings/gitpod.py
-sed -i "s|GITPOD_URL|https://8000-$GITPOD_HOST|g" core/settings/gitpod.py
+
+if [ "$1" == "--init" ]
+then
+    pip install --upgrade pip
+    pip install -r _requirements/base.txt -r _requirements/develop.txt
+    pur -r _requirements/base.txt
+    pur -r _requirements/production.txt
+
+    sed -i "s|GITPOD_HOST|8000-$GITPOD_HOST|g" core/settings/gitpod.py
+    sed -i "s|GITPOD_URL|https://8000-$GITPOD_HOST|g" core/settings/gitpod.py
+fi
+
 export DJANGO_BASE_URL=https://8000-$GITPOD_HOST
 export DJANGO_SETTINGS_MODULE=core.settings.gitpod
 export DJANGO_SECRET_KEY=django-insecure-reemplazame!
@@ -36,8 +37,11 @@ export DJANGO_SSO_URL=https://portal.dcc.uchile.cl/
 export DJANGO_SSO_APP=develop
 export DJANGO_SSO_AUTH=True
 
-python manage.py migrate
-echo "from django.contrib.auth.models import User; User.objects.create_superuser('desarrollo', '', 'desarroll0')" | python manage.py shell
+if [ "$2" == "--init" ]
+then
+    python manage.py migrate
+    echo "from django.contrib.auth.models import User; User.objects.create_superuser('desarrollo', '', 'desarroll0')" | python manage.py shell
+fi
 
-# make loaddata
-make run
+make precommit
+python manage.py runserver 0.0.0.0:8000
