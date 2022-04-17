@@ -1,4 +1,6 @@
 # makefile
+SHELL := /bin/bash
+
 bold := $(shell tput bold)
 sgr0 := $(shell tput sgr0)
 
@@ -15,7 +17,8 @@ sgr0 := $(shell tput sgr0)
 # 	python manage.py dumpdata backend --indent 2 > _backup/backend.json
 
 run:
-	../gitpod.sh
+	make precommit
+	source ../.gitpod/env.sh && python manage.py runserver 0.0.0.0:8000
 
 precommit:
 	black --line-length=140 .
