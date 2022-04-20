@@ -18,7 +18,7 @@ sgr0 := $(shell tput sgr0)
 
 run:
 	make precommit
-	source ../.gitpod/env.sh && python manage.py runserver 0.0.0.0:8000
+	python manage.py runserver 0.0.0.0:8000
 
 precommit:
 	black --line-length=140 .
