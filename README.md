@@ -37,3 +37,15 @@ Puede revisar cómo funcionan estas automatizaciones y otros comandos útiles en
 - .gitpod.yml
 - .gitpod/*.sh
 - app/Makefile
+
+### Al correrlo de forma local con Docker
+
+Este proyecto se encuentra configurado con Docker para levantar un ambiente local de desarrollo. El [Portal](https://portal.dcc.uchile.cl) es compatible para trabajar con Apps que funcionen en localhost, para más información contacte al Área de Desarrollo del DCC.
+
+```console
+dev@DCC ~/.docker/ $ docker-compose up -d --build
+dev@DCC ~/.docker/ $ docker exec django python manage.py migrate
+dev@DCC ~/.docker/ $ docker exec -it django python manage.py createsuperuser
+```
+
+NOTA: si usas Docker, debes reemplazar el link simbólico app/sso por la carpeta django_sso/app/sso. Esto debido a que Docker no soporta el uso de links simbólicos.

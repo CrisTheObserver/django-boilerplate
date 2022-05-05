@@ -10,7 +10,6 @@ RUN apt-get update \
     && apt-get -y install libpq-dev gcc build-essential zip --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip install --upgrade pip
 COPY app/ .
 
 RUN pip install --upgrade pip \

@@ -21,14 +21,6 @@ ADMINS = [
     ("Área de Desarrollo de Software", "desarrollo@dcc.uchile.cl"),
 ]
 
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django.core.cache.backends.filebased.FileBasedCache",
-#         "LOCATION": "/tmp/django_cache",
-#     }
-# }
-# CACHE_MIDDLEWARE_SECONDS = 60 * 60 * 15
-
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
