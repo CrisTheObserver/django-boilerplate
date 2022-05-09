@@ -8,7 +8,7 @@ services:
         hostname: apps.dcc.uchile.cl
         build: 
             context: ../
-            dockerfile: ./docker/app/Dockerfile
+            dockerfile: .docker/app/Dockerfile
         command: gunicorn --workers 4 --bind :8000 core.wsgi
         volumes:
             - /home/instalar/static/django_boilerplate/:/static/:rw
