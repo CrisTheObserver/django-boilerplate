@@ -2,6 +2,6 @@
 
 echo COMMAND
 
-source .gitpod/env.sh
+source /workspace/django-boilerplate/.gitpod/env.sh
 cd /workspace/django-boilerplate/app
 make run

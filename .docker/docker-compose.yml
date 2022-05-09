@@ -22,7 +22,7 @@ services:
         build: 
             context: ../
             dockerfile: .docker/app/Dockerfile
-        command: python manage.py runserver 0.0.0.0:8000 --settings=core.settings.docker
+        command: python manage.py runserver 0.0.0.0:8000 --settings=core.settings.local
         restart: "no"
         volumes:
             - ../app/:/usr/src/app/:rw
@@ -32,7 +32,7 @@ services:
         ports:
             - 8000:8000
         env_file:
-            - ./app/.env
+            - app/.env
         depends_on:
             postgresql:
                 condition: service_healthy

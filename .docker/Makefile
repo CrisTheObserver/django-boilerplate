@@ -1,7 +1,7 @@
 # makefile
 
 build:
-	docker-compose -f ../dc-produccion.yml up -d --build --force-recreate --remove-orphans
+	docker-compose -f dc-produccion.yml up -d --build --force-recreate --remove-orphans
 	docker ps
 
 restart:

@@ -7,11 +7,10 @@ services:
         container_name: django_boilerplate
         hostname: apps.dcc.uchile.cl
         build: 
-            context: .
-            dockerfile: ./app/Dockerfile
+            context: ../
+            dockerfile: ./docker/app/Dockerfile
         command: gunicorn --workers 4 --bind :8000 core.wsgi
         volumes:
-            - ../app/:/usr/src/app/:rw
             - /home/instalar/static/django_boilerplate/:/static/:rw
             - /home/instalar/media/django_boilerplate/:/media/:rw
             - /home/instalar/logs/django_boilerplate:/logs:rw
@@ -20,7 +19,7 @@ services:
         expose:
             - 8000
         env_file:
-            - ./app/.env
+            - app/.env
         restart: always
         # labels:
         #     ofelia.enabled: "true"
