@@ -47,5 +47,3 @@ dev@DCC ~/.docker/ $ docker-compose up -d --build
 dev@DCC ~/.docker/ $ docker exec django python manage.py migrate
 dev@DCC ~/.docker/ $ docker exec -it django python manage.py createsuperuser
 ```
-
-NOTA: si usas Docker, debes reemplazar el link simbólico app/sso por la carpeta django_sso/app/sso. Esto debido a que Docker no soporta el uso de links simbólicos.
