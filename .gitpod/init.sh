@@ -19,6 +19,10 @@ do
 done
 chmod +x .gitpod/env.sh
 
+rm /workspace/django-boilerplate/app/sso
+ln -s /workspace/django-boilerplate/django_sso/app/sso /workspace/django-boilerplate/app/sso
+ln -s /workspace/django-boilerplate/django_sso/app/demo /workspace/django-boilerplate/app/demo
+
 export GITPOD_HOST=`gp url | sed "s|https://||"`
 sed -i "s|GITPOD_HOST|8000-$GITPOD_HOST|g" app/core/settings/gitpod-tmp.py
 sed -i "s|GITPOD_URL|https://8000-$GITPOD_HOST|g" app/core/settings/gitpod-tmp.py
@@ -26,10 +30,7 @@ sed -i "s|core.settings.production|core.settings.gitpod-tmp|g" .gitpod/env.sh
 sed -i "s|https://dcc.uchile.cl|https://8000-$GITPOD_HOST|g" .gitpod/env.sh
 source .gitpod/env.sh
 
-rm /workspace/django-boilerplate/app/sso
-ln -s /workspace/django-boilerplate/django_sso/app/sso /workspace/django-boilerplate/app/sso
-ln -s /workspace/django-boilerplate/django_sso/app/demo /workspace/django-boilerplate/app/demo
-
+psql -U gitpod -c "SELECT 1 FROM pg_database WHERE datname = 'boilerplate'" | grep -q 1 || psql -U gitpod -c "CREATE DATABASE boilerplate"
 
 cd /workspace/django-boilerplate/app
 python manage.py migrate
