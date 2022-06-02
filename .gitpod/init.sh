@@ -27,7 +27,7 @@ export GITPOD_HOST=`gp url | sed "s|https://||"`
 sed -i "s|GITPOD_HOST|8000-$GITPOD_HOST|g" app/core/settings/gitpod-tmp.py
 sed -i "s|GITPOD_URL|https://8000-$GITPOD_HOST|g" app/core/settings/gitpod-tmp.py
 sed -i "s|core.settings.production|core.settings.gitpod-tmp|g" .gitpod/env.sh
-sed -i "s|https://dcc.uchile.cl|https://8000-$GITPOD_HOST|g" .gitpod/env.sh
+sed -i "s|http://localhost:8000|https://8000-$GITPOD_HOST|g" .gitpod/env.sh
 source .gitpod/env.sh
 
 psql -U gitpod -c "SELECT 1 FROM pg_database WHERE datname = 'boilerplate'" | grep -q 1 || psql -U gitpod -c "CREATE DATABASE boilerplate"
