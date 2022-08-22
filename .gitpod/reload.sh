@@ -25,6 +25,6 @@ source .gitpod/env.sh
 psql -U gitpod -c "DROP DATABASE boilerplate"
 psql -U gitpod -c "CREATE DATABASE boilerplate"
 
-cd /workspace/servicios/app
+cd /workspace/django-boilerplate/app
 python manage.py migrate
 make loaddata
