@@ -16,6 +16,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "sso.apps.SsoConfig",
+    "polls.apps.PollsConfig",
+    "cbvpolls.apps.CbvpollsConfig",
 ]
 
 MIDDLEWARE = [
