@@ -21,7 +21,6 @@ chmod +x .gitpod/env.sh
 
 rm /workspace/django-boilerplate/app/sso
 ln -s /workspace/django-boilerplate/django_sso/app/sso /workspace/django-boilerplate/app/sso
-ln -s /workspace/django-boilerplate/django_sso/app/demo /workspace/django-boilerplate/app/demo
 
 export GITPOD_HOST=`gp url | sed "s|https://||"`
 sed -i "s|GITPOD_HOST|8000-$GITPOD_HOST|g" app/core/settings/gitpod-tmp.py
