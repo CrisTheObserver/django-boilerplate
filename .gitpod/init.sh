@@ -34,3 +34,5 @@ psql -U gitpod -c "SELECT 1 FROM pg_database WHERE datname = 'boilerplate'" | gr
 cd /workspace/django-boilerplate/app
 python manage.py migrate
 echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', '', 'admin')" | python manage.py shell
+
+make loaddata

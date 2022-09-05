@@ -17,7 +17,7 @@
         </a>
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
             <li><a class="dropdown-item" href="{% url 'polls:index' %}" class="nav-link active" aria-current="page"><i class="bi bi-award pe-1"></i>Polls</a></li>
-            <li><a class="dropdown-item" href="{% url 'polls:index' %}" class="nav-link active" aria-current="page"><i class="bi bi-award pe-1"></i>CBV Polls</a></li>
+            <li><a class="dropdown-item" href="{% url 'cbvpolls:index' %}" class="nav-link active" aria-current="page"><i class="bi bi-award pe-1"></i>CBV Polls</a></li>
             <li><hr class="dropdown-divider"></li>
         {% if user.is_staff %}
             <li><a class="dropdown-item" href="{% url 'admin:index' %}" target="_blank"><i class="bi bi-gear pe-1"></i>Administración</a></li>
