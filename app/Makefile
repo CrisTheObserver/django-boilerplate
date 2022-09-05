@@ -4,8 +4,8 @@ SHELL := /bin/bash
 bold := $(shell tput bold)
 sgr0 := $(shell tput sgr0)
 
-# loaddata:
-# 	python manage.py loaddata _backup/backend.json
+loaddata:
+	python manage.py loaddata _backup/polls.json
 
 # backup:
 # 	mkdir bkp
@@ -13,8 +13,8 @@ sgr0 := $(shell tput sgr0)
 # 	zip _backup/backup.zip bkp/*.json
 # 	rm -rf bkp
 
-# dumpdata:
-# 	python manage.py dumpdata backend --indent 2 > _backup/backend.json
+dumpdata:
+	python manage.py dumpdata polls --indent 2 > _backup/polls.json
 
 run:
 	make precommit
