@@ -21,7 +21,6 @@ chmod +x .gitpod/env.sh
 
 rm /workspace/django-boilerplate/app/sso
 ln -s /workspace/django-boilerplate/django_sso/app/sso /workspace/django-boilerplate/app/sso
-ln -s /workspace/django-boilerplate/django_sso/app/demo /workspace/django-boilerplate/app/demo
 
 export GITPOD_HOST=`gp url | sed "s|https://||"`
 sed -i "s|GITPOD_HOST|8000-$GITPOD_HOST|g" app/core/settings/gitpod-tmp.py
@@ -34,4 +33,6 @@ psql -U gitpod -c "SELECT 1 FROM pg_database WHERE datname = 'boilerplate'" | gr
 
 cd /workspace/django-boilerplate/app
 python manage.py migrate
-echo "from django.contrib.auth.models import User; User.objects.create_superuser('desarrollo', '', 'desarroll0')" | python manage.py shell
+echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', '', 'admin')" | python manage.py shell
+
+make loaddata
