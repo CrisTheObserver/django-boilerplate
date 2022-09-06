@@ -44,6 +44,7 @@ Este proyecto se encuentra configurado con Docker para levantar un ambiente loca
 
 ```console
 dev@DCC ~/.docker/ $ docker-compose up -d --build
-dev@DCC ~/.docker/ $ docker exec django python manage.py migrate
-dev@DCC ~/.docker/ $ docker exec -it django python manage.py createsuperuser
+dev@DCC ~/.docker/ $ docker exec django-boilerplate python manage.py migrate
+dev@DCC ~/.docker/ $ docker exec -it django-boilerplate python manage.py createsuperuser
+dev@DCC ~/.docker/ $ docker exec -it django-boilerplate python manage.py loaddata _backup/polls.json
 ```
